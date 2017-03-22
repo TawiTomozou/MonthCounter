@@ -44,6 +44,7 @@
             this.buttonMonthCountUp = new System.Windows.Forms.Button();
             this.labelDate = new System.Windows.Forms.Label();
             this.timerCheckDate = new System.Windows.Forms.Timer(this.components);
+            this.checkBoxTopMost = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // buttonTodayCountUp
@@ -187,11 +188,23 @@
             this.timerCheckDate.Interval = 1000;
             this.timerCheckDate.Tick += new System.EventHandler(this.timerCheckDate_Tick);
             // 
+            // checkBoxTopMost
+            // 
+            this.checkBoxTopMost.AutoSize = true;
+            this.checkBoxTopMost.Location = new System.Drawing.Point(211, 9);
+            this.checkBoxTopMost.Name = "checkBoxTopMost";
+            this.checkBoxTopMost.Size = new System.Drawing.Size(89, 19);
+            this.checkBoxTopMost.TabIndex = 13;
+            this.checkBoxTopMost.Text = "前面固定";
+            this.checkBoxTopMost.UseVisualStyleBackColor = true;
+            this.checkBoxTopMost.CheckedChanged += new System.EventHandler(this.checkBoxTopMost_CheckedChanged);
+            // 
             // formMonthCounter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(312, 173);
+            this.Controls.Add(this.checkBoxTopMost);
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.labelMonth);
             this.Controls.Add(this.textBoxMonthCount);
@@ -235,6 +248,7 @@
         private System.Windows.Forms.Button buttonMonthCountUp;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.Timer timerCheckDate;
+        private System.Windows.Forms.CheckBox checkBoxTopMost;
     }
 }
 

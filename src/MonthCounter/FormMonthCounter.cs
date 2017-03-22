@@ -1,4 +1,6 @@
-﻿using System;
+﻿//  0.1     作成
+//  0.1.1   前面固定チェックボックス追加
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -27,6 +29,8 @@ namespace MonthCounter
             this.Location = new Point(Properties.Settings.Default.X, Properties.Settings.Default.Y);
             //カウント数日付初期化
             initialCountDate();
+            //前面固定指定読み込み
+            checkBoxTopMost.Checked = Properties.Settings.Default.TopMost;
             //Timer起動
             timerCheckDate.Start();
         }
@@ -155,13 +159,20 @@ namespace MonthCounter
 
         private void formMonthCounter_FormClosed(object sender, FormClosedEventArgs e)
         {
+            //終了時に各値を保存する
             Properties.Settings.Default.X = this.Location.X;
             Properties.Settings.Default.Y = this.Location.Y;
             Properties.Settings.Default.TodayCount = ushortTodayCount;
             Properties.Settings.Default.YesterdayCount = ushortYesterdayCount;
             Properties.Settings.Default.MonthCount = ushortMonthCount;
             Properties.Settings.Default.dateToday = dateToday;
+            Properties.Settings.Default.TopMost = checkBoxTopMost.Checked;
             Properties.Settings.Default.Save();
+        }
+
+        private void checkBoxTopMost_CheckedChanged(object sender, EventArgs e)
+        {
+            this.TopMost = checkBoxTopMost.Checked;
         }
     }
 }
